@@ -23,6 +23,7 @@ class DataVM: ViewModel {
     private var items: [SearchItem] = []
     private var timer = Timer()
     private var currentQueryPage: Int = 1
+    private let perPage = 15
     var reloadViewCallback: (()->Void)?
     var isLoading: ((Bool)->Void)?
 
@@ -43,11 +44,11 @@ class DataVM: ViewModel {
     }
     
     func loadNextQuery(text: String) {
-        guard self.count() >= 30 else { return }
+        guard self.count() >= self.perPage * 2 else { return }
         
         currentQueryPage += 2
         self.isLoading?(true)
-        self.apiService.searchRepositories(query: text, page: self.currentQueryPage, perPage: 15, sort: .stars, order: .desc, completion: { [weak self] (result, err) in
+        self.apiService.searchRepositories(query: text, page: self.currentQueryPage, perPage: self.perPage, sort: .stars, order: .desc, completion: { [weak self] (result, err) in
             guard let self = self else { return }
             self.isLoading?(false)
 

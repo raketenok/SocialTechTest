@@ -18,15 +18,17 @@ class DataVC: ViewControllerBase<DataVM> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.isHidden = true
         self.loadingLabel.isHidden = true
         self.tableView.registerCell(RepositoryCell.self)
         self.viewModel.reloadViewCallback = { [weak self] in
             self?.tableView.reloadData()
+            self?.tableView.isHidden = self?.viewModel.count() == 0
         }
         self.viewModel.isLoading = { [weak self] isLoading in
-            self?.loadingLabel.isHidden = !isLoading
             let alpha: CGFloat = isLoading ? 1.0 : 0.0
             UIView.animate(withDuration: 0.3) {
+                self?.loadingLabel.isHidden = false
                 self?.loadingLabel.alpha = alpha
             }
         }

@@ -30,7 +30,7 @@ protocol APIService: AppService {
     func searchRepositories(query: String,
                             page: Int,
                             perPage: Int,
-                            sort: Sort?,
+                            sort: Sort,
                             order: Order,
                             completion: @escaping APISearchCompletion)
 }
@@ -39,16 +39,9 @@ final class APIServiceImp: APIService {
         
     typealias Factory = LocalSettingServiceFactory
     private let localSettingsService: LocalSettingsService
-    private let searchOperationQueue: OperationQueue = {
-        let queue = OperationQueue()
-        queue.qualityOfService = .background
-        queue.name = "Searching.API"
-        return queue
-    }()
-   
+
     init(factory: Factory = DefaultFactory()) {
         self.localSettingsService = factory.makeLocalSettingsService()
-        
     }
     
     func getAccessToken(clientID: String,
@@ -70,11 +63,10 @@ final class APIServiceImp: APIService {
     func searchRepositories(query: String,
                             page: Int,
                             perPage: Int,
-                            sort: Sort?,
+                            sort: Sort,
                             order: Order,
                             completion: @escaping APISearchCompletion) {
-           
-        QueryRepositories().searchRepositories(query: query, token: self.localSettingsService.aceessToken, page: page) { (result, err) in
+        QueryRepositories().searchRepositories(query: query, token: self.localSettingsService.aceessToken, page: page, perPage: perPage, sort: sort, order: order) { (result, err) in
             completion(result, err)
         }
     }

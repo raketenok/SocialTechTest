@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftKeychainWrapper
 
 
 protocol LocalSettingServiceFactory {
@@ -28,30 +29,23 @@ protocol LocalSettingsService: AppService {
 
 class LocalSettingsServiceImp: LocalSettingsService {
     
-    
     typealias Factory = DefaultFactory
     private let ud = UserDefaults.standard
+    private let keyChainWrapper = KeychainWrapper.standard
     private static let kRecentItems = "RecentItems"
     private static let kToken = "AccessToken"
-
     private static let defaultMaxSizeOfRecentArray = 20
     
-    
     init(factory: Factory = DefaultFactory()) {
-        
-        
+   
     }
-    
     
     var aceessToken: String? {
         get {
-            return self.ud.string(forKey: LocalSettingsServiceImp.kToken)
+            return self.keyChainWrapper.string(forKey: LocalSettingsServiceImp.kToken)
         }
-        
         set {
-            self.ud.set(newValue, forKey: LocalSettingsServiceImp.kToken)
-            self.ud.synchronize()
-
+            self.keyChainWrapper.set(newValue ?? "", forKey: LocalSettingsServiceImp.kToken)
         }
     }
 

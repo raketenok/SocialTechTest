@@ -11,6 +11,10 @@ import Foundation
 
 extension String: Error {
     
+    
+    func makeError() -> Error {
+        return NSError(domain: self, code: 6666, userInfo: nil)
+    }
 }
 
 

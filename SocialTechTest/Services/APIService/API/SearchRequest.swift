@@ -82,7 +82,7 @@ class SearchRequest: BaseAPI {
                         let limitText = httpResponse.allHeaderFields["X-Ratelimit-Remaining"] as? String,
                         let limit = Int(limitText),
                         limit == 0 {
-                        error = "Limit for requests"
+                        error = "Limit for requests".makeError()
                         items = nil
                     }
                     completion(items, error)

@@ -20,7 +20,7 @@ extension AppCoordinatorServiceFactory {
     }
 }
 
-final class CoordinatorService: AppService {
+class CoordinatorService: AppService {
     
     typealias Factory = DefaultFactory
     private let coordinator: AppCoordinator

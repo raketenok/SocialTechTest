@@ -28,14 +28,12 @@ class MainVM: ViewModel {
         guard url == Constant.redirectURL else { return }
         
         self.apiService.getAccessToken(clientID: Constant.clientID, clientSecret: Constant.clientSecret, code: code, redirectURL: Constant.redirectURL) { [weak self] (response, err) in
-            
-            guard let error = err else {
-                DispatchQueue.main.async {
-                    self?.delegate?.successLogin()
-                }
-                return
+            if let error = err {
+                self?.baseVew?.errorAlert(error)
             }
-            self?.baseVew?.errorAlert(error)
+            DispatchQueue.main.async {
+                self?.delegate?.successLogin()
+            }
         }
     }
     

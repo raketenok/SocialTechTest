@@ -16,6 +16,7 @@ class RecentVC: ViewControllerBase<RecentVM> {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = .black
+        self.tableView.isHidden = self.viewModel.count() == 0
         self.tableView.registerCell(RepositoryCell.self)
         self.viewModel.reloadViewCallback = { [weak self] in
             self?.tableView.reloadData()

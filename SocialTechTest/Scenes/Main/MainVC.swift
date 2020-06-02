@@ -20,7 +20,6 @@ class MainVC: ViewControllerBase<MainVM> {
         let url = self.viewModel.buildURL(allowSignup: true)
         self.webView.navigationDelegate = self
         self.webView.load(URLRequest(url: url))
-        
     }
 }
 

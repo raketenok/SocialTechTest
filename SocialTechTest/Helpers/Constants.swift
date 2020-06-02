@@ -9,7 +9,7 @@
 import Foundation
 
 struct Constant {
-    static let redirectURL = "https://github.com/serhii-londar/GithubIssues"
-    static let clientSecret = "add7ac2abdc6e81fa7ee19c824907a55f0877bb9"
-    static let clientID = "07433363de7de028229f"
+    static let redirectURL = "https://github.com/raketenok/SocialTechTest"
+    static let clientSecret = "1290419e951ec215944bd7334062d977568454f7"
+    static let clientID = "632642612565db3bb11f"
 }
