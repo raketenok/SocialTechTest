@@ -42,10 +42,11 @@ class MainVM: ViewModel {
         urlComponents.scheme = "https"
         urlComponents.host = "github.com"
         urlComponents.path = "/login/oauth/authorize"
+        let scopesQueryItem = URLQueryItem(name: "scope", value: "public_repo")
         let redirectURIQueryItem = URLQueryItem(name: "redirect_uri", value: "\(Constant.redirectURL)")
         let allowSignupQueryItem = URLQueryItem(name: "allow_signup", value: "\(allowSignup ? "true" : "false")")
         let clientIDQueryItem = URLQueryItem(name: "client_id", value: Constant.clientID)
-        urlComponents.queryItems = [redirectURIQueryItem, allowSignupQueryItem, clientIDQueryItem]
+        urlComponents.queryItems = [scopesQueryItem, redirectURIQueryItem, allowSignupQueryItem, clientIDQueryItem]
         return urlComponents.url!
     }
     
