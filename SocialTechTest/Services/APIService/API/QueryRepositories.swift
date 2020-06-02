@@ -10,26 +10,22 @@ import Foundation
 
 
 final class QueryRepositories {
-
-    private let perPage = 15
-    private let sort: Sort = .stars
-    private let order: Order = .desc
     
-    func searchRepositories(query: String, token: String?, page: Int, completion: @escaping APISearchCompletion) {
+    func searchRepositories(query: String, token: String?, page: Int, perPage: Int = 15, sort: Sort = .stars, order: Order = .desc, completion: @escaping APISearchCompletion) {
         let group = DispatchGroup()
         var queryRepositoriesError: Error?
         var firstResponse: [SearchItem]?
         var secondResponse: [SearchItem]?
         
         group.enter()
-        SearchRequest().searchRepositories(query: query, token: token, page: page, perPage: self.perPage, sort: self.sort, order: self.order) { (response, error) in
+        SearchRequest().searchRepositories(query: query, token: token, page: page, perPage: perPage, sort: sort, order: order) { (response, error) in
             firstResponse = response
             queryRepositoriesError = error
             group.leave()
         }
         
         group.enter()
-        SearchRequest().searchRepositories(query: query, token: token, page: page + 1, perPage: self.perPage, sort: self.sort, order: self.order) { (response, error) in
+        SearchRequest().searchRepositories(query: query, token: token, page: page + 1, perPage: perPage, sort: sort, order: order) { (response, error) in
             secondResponse = response
             queryRepositoriesError = error
             group.leave()

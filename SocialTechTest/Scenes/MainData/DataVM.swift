@@ -24,7 +24,8 @@ class DataVM: ViewModel {
     private var timer = Timer()
     private var currentQueryPage: Int = 1
     var reloadViewCallback: (()->Void)?
-    
+    var isLoading: ((Bool)->Void)?
+
     
     init(delegate: DataVMDelegate?, factory: Factory = DefaultFactory()) {
         self.apiService = factory.makeAPIService()
@@ -45,8 +46,11 @@ class DataVM: ViewModel {
         guard self.count() >= 30 else { return }
         
         currentQueryPage += 2
+        self.isLoading?(true)
         self.apiService.searchRepositories(query: text, page: self.currentQueryPage, perPage: 15, sort: .stars, order: .desc, completion: { [weak self] (result, err) in
             guard let self = self else { return }
+            self.isLoading?(false)
+
             if let error = err {
                 self.baseVew?.errorAlert(error)
                 return
@@ -70,10 +74,14 @@ class DataVM: ViewModel {
             return
         }
         
-        self.timer = Timer.scheduledTimer(withTimeInterval: 0, repeats: false) { [weak self] _ in
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.7, repeats: false) { [weak self] _ in
             guard let self = self else { return }
+            self.isLoading?(true)
+
             self.apiService.searchRepositories(query: text, page: self.currentQueryPage, perPage: 15, sort: .stars, order: .desc, completion: { [weak self] (result, err) in
                 guard let self = self else { return }
+                self.isLoading?(false)
+
                 if let error = err {
                     self.baseVew?.errorAlert(error)
                     return
