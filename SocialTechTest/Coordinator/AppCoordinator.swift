@@ -28,7 +28,9 @@ class AppCoordinator: CoordinatorBase {
     private func showMainVC() {
         let vm = MainVM(delegate: self)
         let initialViewController = MainVC.instantiateFromStoryboard(viewModel: vm)
-        self.setRootVC(viewController: initialViewController)
+        let navigation = UINavigationController(rootViewController: initialViewController)
+        navigation.setNavigationBarHidden(true, animated: false)
+        self.setRootVC(viewController: navigation)
     }
     
     private func showDataVC() {

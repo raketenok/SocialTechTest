@@ -7,20 +7,15 @@
 //
 
 import Foundation
-import WebKit
 import UIKit
 
-class DetailVC: ViewControllerBase<DetailVM> {
-    
-    @IBOutlet private weak var webView: WKWebView!
+class DetailVC: MapView<DetailVM> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.title = self.viewModel.titleText()
         guard let url = self.viewModel.url() else { return }
         self.webView.load(URLRequest(url: url))
        // self.addCloseButton()
     }
-
 }

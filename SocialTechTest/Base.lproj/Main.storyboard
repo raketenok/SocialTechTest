@@ -14,29 +14,10 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uND-vh-X5V">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uND-vh-X5V" secondAttribute="trailing" id="JNV-ag-CFf"/>
-                            <constraint firstAttribute="bottom" secondItem="uND-vh-X5V" secondAttribute="bottom" id="Lk1-OD-dhj"/>
-                            <constraint firstItem="uND-vh-X5V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="h12-BE-Ra2"/>
-                            <constraint firstItem="uND-vh-X5V" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kTy-ap-2lW"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="6uM-RF-bit"/>
-                    <connections>
-                        <outlet property="webView" destination="uND-vh-X5V" id="aOn-hO-nxT"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -181,30 +162,11 @@
                     <view key="view" contentMode="scaleToFill" id="88N-C3-MuZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7j9-mc-HAb">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="7j9-mc-HAb" firstAttribute="top" secondItem="c6G-zb-5NK" secondAttribute="top" id="2df-iQ-NWF"/>
-                            <constraint firstItem="7j9-mc-HAb" firstAttribute="leading" secondItem="c6G-zb-5NK" secondAttribute="leading" id="CQ1-aH-9T6"/>
-                            <constraint firstItem="c6G-zb-5NK" firstAttribute="trailing" secondItem="7j9-mc-HAb" secondAttribute="trailing" id="P1Q-As-jrS"/>
-                            <constraint firstAttribute="bottom" secondItem="7j9-mc-HAb" secondAttribute="bottom" id="TEw-o6-6rR"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="c6G-zb-5NK"/>
                     </view>
                     <navigationItem key="navigationItem" id="xbK-pl-aB0"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <connections>
-                        <outlet property="webView" destination="7j9-mc-HAb" id="Upc-OL-Csi"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xIt-NQ-QM9" sceneMemberID="firstResponder"/>
             </objects>

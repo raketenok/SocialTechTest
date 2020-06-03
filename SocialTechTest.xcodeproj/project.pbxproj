@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B2C7B302487C53F008CDE7A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2C7B2F2487C53F008CDE7A /* MapView.swift */; };
 		3B50D193248318E500613054 /* QueryRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D192248318E500613054 /* QueryRepositories.swift */; };
 		3B50D19524864F1200613054 /* TestContainerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D19424864F1200613054 /* TestContainerClass.swift */; };
 		3B50D1982486503100613054 /* LocalSettingsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D1972486503100613054 /* LocalSettingsServiceMock.swift */; };
@@ -63,6 +64,7 @@
 		0221803A0F8653E4D3BC539D /* Pods_SocialTechTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialTechTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38092D74275494D17D2DE782 /* Pods-SocialTechTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTechTestTests.release.xcconfig"; path = "Target Support Files/Pods-SocialTechTestTests/Pods-SocialTechTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		38E6E1FD6673A4BEE51A1A90 /* Pods-SocialTechTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTechTest.release.xcconfig"; path = "Target Support Files/Pods-SocialTechTest/Pods-SocialTechTest.release.xcconfig"; sourceTree = "<group>"; };
+		3B2C7B2F2487C53F008CDE7A /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		3B50D192248318E500613054 /* QueryRepositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryRepositories.swift; sourceTree = "<group>"; };
 		3B50D19424864F1200613054 /* TestContainerClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestContainerClass.swift; sourceTree = "<group>"; };
 		3B50D1972486503100613054 /* LocalSettingsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSettingsServiceMock.swift; sourceTree = "<group>"; };
@@ -269,9 +271,10 @@
 		3B56870524828C420011044E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				3B568700248283A40011044E /* Constants.swift */,
 				3B56870624828C490011044E /* Extensions */,
+				3B568700248283A40011044E /* Constants.swift */,
 				3B56870924828C940011044E /* ViewControllerBase.swift */,
+				3B2C7B2F2487C53F008CDE7A /* MapView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				3B5686C524824E660011044E /* AppDelegate.swift in Sources */,
 				3B5686EE24825AE00011044E /* BaseAPI.swift in Sources */,
 				3B5687252482B4B80011044E /* AppCoordinator.swift in Sources */,
+				3B2C7B302487C53F008CDE7A /* MapView.swift in Sources */,
 				3B5687222482A4A40011044E /* CoordinatorService.swift in Sources */,
 				3B56870C24828CB10011044E /* String+Extension.swift in Sources */,
 				3B56871D2482A2E80011044E /* DataVC.swift in Sources */,

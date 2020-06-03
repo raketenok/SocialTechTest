@@ -10,15 +10,12 @@ import Foundation
 import UIKit
 import WebKit
 
-
-class MainVC: ViewControllerBase<MainVM> {
+class MainVC: MapView<MainVM> {
     
-    @IBOutlet private weak var webView: WKWebView!
-   
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = self.viewModel.buildURL(allowSignup: true)
         self.webView.navigationDelegate = self
+        let url = self.viewModel.buildURL(allowSignup: true)
         self.webView.load(URLRequest(url: url))
     }
 }
